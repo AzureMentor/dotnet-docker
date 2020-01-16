@@ -1,0 +1,9 @@
+trigger: none
+pr:
+- nightly
+
+variables:
+- template: variables/common.yml
+
+jobs:
+- template: ../common/templates/jobs/validate-image-sizes.yml

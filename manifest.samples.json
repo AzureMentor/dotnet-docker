@@ -1,8 +1,11 @@
 {
+  "registry": "mcr.microsoft.com",
   "repos": [
     {
-      "name": "microsoft/dotnet-samples",
-      "readmePath": "samples/README.DockerHub.md",
+      "id": "samples",
+      "name": "dotnet/core/samples",
+      "readmePath": "README.samples.md",
+      "mcrTagsMetadataTemplatePath": "eng/mcr-tags-metadata-templates/samples-tags.yml",
       "images": [
         {
           "sharedTags": {
@@ -11,38 +14,35 @@
           },
           "platforms": [
             {
-              "dockerfile": "samples/dotnetapp/Dockerfile",
+              "dockerfile": "samples/dotnetapp",
               "os": "linux",
+              "osVersion": "buster",
               "tags": {
-                "dotnetapp-stretch": {}
+                "dotnetapp-buster-slim": {}
               }
             },
             {
-              "dockerfile": "samples/dotnetapp/Dockerfile",
-              "os": "windows",
-              "osVersion": "nanoserver-sac2016",
+              "architecture": "arm",
+              "dockerfile": "samples/dotnetapp/Dockerfile.debian-arm32",
+              "os": "linux",
+              "osVersion": "buster",
               "tags": {
-                "dotnetapp-nanoserver-sac2016": {}
-              }
+                "dotnetapp-buster-slim-arm32v7": {}
+              },
+              "variant": "v7"
             },
             {
-              "dockerfile": "samples/dotnetapp/Dockerfile",
-              "os": "windows",
-              "osVersion": "nanoserver-1709",
+              "architecture": "arm64",
+              "dockerfile": "samples/dotnetapp",
+              "os": "linux",
+              "osVersion": "buster",
               "tags": {
-                "dotnetapp-nanoserver-1709": {}
-              }
+                "dotnetapp-buster-slim-arm64v8": {}
+              },
+              "variant": "v8"
             },
             {
-              "dockerfile": "samples/dotnetapp/Dockerfile",
-              "os": "windows",
-              "osVersion": "nanoserver-1803",
-              "tags": {
-                "dotnetapp-nanoserver-1803": {}
-              }
-            },
-            {
-              "dockerfile": "samples/dotnetapp/Dockerfile",
+              "dockerfile": "samples/dotnetapp",
               "os": "windows",
               "osVersion": "nanoserver-1809",
               "tags": {
@@ -51,12 +51,28 @@
             },
             {
               "architecture": "arm",
-              "dockerfile": "samples/dotnetapp/Dockerfile",
-              "os": "linux",
+              "dockerfile": "samples/dotnetapp/Dockerfile.nanoserver-arm32",
+              "os": "windows",
+              "osVersion": "nanoserver-1809",
               "tags": {
-                "dotnetapp-stretch-arm32v7": {}
-              },
-              "variant": "v7"
+                "dotnetapp-nanoserver-1809-arm32v7": {}
+              }
+            },
+            {
+              "dockerfile": "samples/dotnetapp",
+              "os": "windows",
+              "osVersion": "nanoserver-1903",
+              "tags": {
+                "dotnetapp-nanoserver-1903": {}
+              }
+            },
+            {
+              "dockerfile": "samples/dotnetapp",
+              "os": "windows",
+              "osVersion": "nanoserver-1909",
+              "tags": {
+                "dotnetapp-nanoserver-1909": {}
+              }
             }
           ]
         },
@@ -66,38 +82,35 @@
           },
           "platforms": [
             {
-              "dockerfile": "samples/aspnetapp/Dockerfile",
+              "dockerfile": "samples/aspnetapp",
               "os": "linux",
+              "osVersion": "buster",
               "tags": {
-                "aspnetapp-stretch": {}
+                "aspnetapp-buster-slim": {}
               }
             },
             {
-              "dockerfile": "samples/aspnetapp/Dockerfile",
-              "os": "windows",
-              "osVersion": "nanoserver-sac2016",
+              "architecture": "arm",
+              "dockerfile": "samples/aspnetapp/Dockerfile.debian-arm32",
+              "os": "linux",
+              "osVersion": "buster",
               "tags": {
-                "aspnetapp-nanoserver-sac2016": {}
-              }
+                "aspnetapp-buster-slim-arm32v7": {}
+              },
+              "variant": "v7"
             },
             {
-              "dockerfile": "samples/aspnetapp/Dockerfile",
-              "os": "windows",
-              "osVersion": "nanoserver-1709",
+              "architecture": "arm64",
+              "dockerfile": "samples/aspnetapp",
+              "os": "linux",
+              "osVersion": "buster",
               "tags": {
-                "aspnetapp-nanoserver-1709": {}
-              }
+                "aspnetapp-buster-slim-arm64v8": {}
+              },
+              "variant": "v8"
             },
             {
-              "dockerfile": "samples/aspnetapp/Dockerfile",
-              "os": "windows",
-              "osVersion": "nanoserver-1803",
-              "tags": {
-                "aspnetapp-nanoserver-1803": {}
-              }
-            },
-            {
-              "dockerfile": "samples/aspnetapp/Dockerfile",
+              "dockerfile": "samples/aspnetapp",
               "os": "windows",
               "osVersion": "nanoserver-1809",
               "tags": {
@@ -106,12 +119,28 @@
             },
             {
               "architecture": "arm",
-              "dockerfile": "samples/aspnetapp/Dockerfile",
-              "os": "linux",
+              "dockerfile": "samples/aspnetapp/Dockerfile.nanoserver-arm32",
+              "os": "windows",
+              "osVersion": "nanoserver-1809",
               "tags": {
-                "aspnetapp-stretch-arm32v7": {}
-              },
-              "variant": "v7"
+                "aspnetapp-nanoserver-1809-arm32v7": {}
+              }
+            },
+            {
+              "dockerfile": "samples/aspnetapp",
+              "os": "windows",
+              "osVersion": "nanoserver-1903",
+              "tags": {
+                "aspnetapp-nanoserver-1903": {}
+              }
+            },
+            {
+              "dockerfile": "samples/aspnetapp",
+              "os": "windows",
+              "osVersion": "nanoserver-1909",
+              "tags": {
+                "aspnetapp-nanoserver-1909": {}
+              }
             }
           ]
         }

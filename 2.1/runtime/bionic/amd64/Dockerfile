@@ -1,4 +1,5 @@
-FROM microsoft/dotnet:2.1-runtime-deps-bionic
+ARG REPO=mcr.microsoft.com/dotnet/core/runtime-deps
+FROM $REPO:2.1-bionic
 
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -6,10 +7,10 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 # Install .NET Core
-ENV DOTNET_VERSION 2.1.6
+ENV DOTNET_VERSION 2.1.15
 
-RUN curl -SL --output dotnet.tar.gz https://dotnetcli.blob.core.windows.net/dotnet/Runtime/$DOTNET_VERSION/dotnet-runtime-$DOTNET_VERSION-linux-x64.tar.gz \
-    && dotnet_sha512='74d99aefcbe953b30743330689e750156e68c3410bc26c40a11b60bbbf1d01887262bd6d7c0eeacca4d6b696c1a04980d9be2dc2a222226fa910b885d2fb5956' \
+RUN curl -SL --output dotnet.tar.gz https://dotnetcli.azureedge.net/dotnet/Runtime/$DOTNET_VERSION/dotnet-runtime-$DOTNET_VERSION-linux-x64.tar.gz \
+    && dotnet_sha512='cfd7f7caea7e896dd4d68a05c827c86f38595f24e854edb3f934715ee1268e2623f17ff768215e465fe596cd474497384be2b1381f04ddd6d555665a341f65f6' \
     && echo "$dotnet_sha512 dotnet.tar.gz" | sha512sum -c - \
     && mkdir -p /usr/share/dotnet \
     && tar -zxf dotnet.tar.gz -C /usr/share/dotnet \
